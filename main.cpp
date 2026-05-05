@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+//TODO: connect this functionality to a ticker to perform live-action computation
 double normalCDF(double x){
     /*
     * Computes the cumulative distribution function (CDF) of a normal distribution
