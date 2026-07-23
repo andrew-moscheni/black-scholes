@@ -11,11 +11,11 @@ class OptionMethod {
         std::shared_ptr<Payoff> payoff;
     
     public:
-        OptionMethod(double expiry_, double strike_, std::shared_ptr<Payoff> payoff_): 
-            strike(strike_), expiry(expiry_), payoff(payoff_) {}
+        OptionMethod(double expiry_, double strike_, std::shared_ptr<Payoff> payoff_)
+            : strike(strike_), expiry(expiry_), payoff(payoff_) {}
         
-        double getExpiry() {return expiry;}
-        double getStrike() {return strike;}
+        double getExpiry() const {return expiry;}
+        double getStrike() const {return strike;}
 
         double executePayoff(double spot) const {return (*payoff)(spot);}
 };
