@@ -27,9 +27,11 @@ target_link_libraries(pricing_engine_py
     PRIVATE
         pricing_engine
         nlohmann_json::nlohmann_json
+        Python3::Module
 )
 
-add_executable(black-scholes main.cpp service_layer.cpp)
+add_executable(black-scholes main.cpp)
+target_link_libraries(black-scholes PRIVATE pricing_engine)
 target_sources(black-scholes PRIVATE black-scholes.h option-method.h payoff.h)
 
 include(CTest)
