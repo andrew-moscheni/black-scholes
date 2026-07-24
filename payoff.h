@@ -3,14 +3,6 @@
 
 #include <algorithm>
 
-struct MarketData{
-    double spotPrice;
-    double strikePrice;
-    double volatility;
-    double riskFreeRate;
-    double timeToExpiry;
-};
-
 class Payoff{
     public:
         virtual ~Payoff() = default;

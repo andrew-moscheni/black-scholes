@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import json
 import computation
 
 app = FastAPI()
@@ -23,8 +24,9 @@ class MarketDataPayload(BaseModel):
 @app.post("/api/pricing")
 def get_pricing(data: MarketDataPayload):
     payload_dict = data.model_dump()
-    bs_metrics = computation.compute(payload_dict, "BlackScholes") 
-    bin_metrics = computation.compute(payload_dict, "Binomial")
+    data_obj = computation.MarketData(**payload_dict)
+    bs_metrics = json.loads(computation.compute(data_obj, "BlackScholes"))
+    bin_metrics = json.loads(computation.compute(data_obj, "Binomial"))
     
     return {
         "blackScholes": bs_metrics,
