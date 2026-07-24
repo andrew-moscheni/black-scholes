@@ -3,16 +3,7 @@
 #include <cmath>
 #include "option-method.h"
 
-
-struct Greeks{
-    double delta;
-    double gamma;
-    double vega;
-    double rho;
-    double theta;
-};
-
-class BlackScholesEngine {
+class BlackScholesEngine : public ModelMethod {
     private:
         static double normalCDF(double x){return 0.5 * (1.0 + erf(x / sqrt(2.0)));}
         static double normalPDF(double x){return 1/(2*2.0*std::acos(0.0))*exp(-x*x/2);}

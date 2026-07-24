@@ -4,6 +4,14 @@
 #include <memory>
 #include "payoff.h"
 
+struct Greeks{
+    double delta;
+    double gamma;
+    double vega;
+    double rho;
+    double theta;
+};
+
 class OptionMethod {
     private:
         double strike;
@@ -18,6 +26,12 @@ class OptionMethod {
         double getStrike() const {return strike;}
 
         double executePayoff(double spot) const {return (*payoff)(spot);}
+};
+
+class ModelMethod {
+    public:
+        static double calculatePrice(const OptionMethod& option, double spot, double vol, double rate, bool isCall){return 0.0;}
+        static Greeks createGreeks(const OptionMethod& option, double spot, double vol, double rate, bool isCall){return {0,0,0,0,0};}
 };
 
 #endif
