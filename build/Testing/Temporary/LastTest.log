@@ -1,0 +1,35 @@
+Start testing: Jul 26 15:00 EDT
+----------------------------------------------------------
+1/1 Testing: PricingTests
+1/1 Test: PricingTests
+Command: "/home/agmoscheni/black-scholes/build/run_tests"
+Directory: /home/agmoscheni/black-scholes/build
+"PricingTests" start time: Jul 26 15:00 EDT
+Output:
+----------------------------------------------------------
+[==========] Running 3 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from BlackScholesTest
+[ RUN      ] BlackScholesTest.AtTheMoneyCallPrice
+[       OK ] BlackScholesTest.AtTheMoneyCallPrice (0 ms)
+[ RUN      ] BlackScholesTest.GreeksCalculation
+[       OK ] BlackScholesTest.GreeksCalculation (0 ms)
+[----------] 2 tests from BlackScholesTest (0 ms total)
+
+[----------] 1 test from BinomialEngineTest
+[ RUN      ] BinomialEngineTest.ConvergenceToBlackScholes
+[       OK ] BinomialEngineTest.ConvergenceToBlackScholes (0 ms)
+[----------] 1 test from BinomialEngineTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 3 tests.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"PricingTests" end time: Jul 26 15:00 EDT
+"PricingTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 26 15:00 EDT

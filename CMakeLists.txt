@@ -17,12 +17,11 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(pybind11)
 
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-add_library(pricing_engine STATIC
-    main.cpp
-)
+add_library(pricing_engine STATIC server/service_layer.cpp)
 target_include_directories(pricing_engine PUBLIC include)
+target_link_libraries(pricing_engine PRIVATE pybind11::pybind11 Python3::Module)
 
-pybind11_add_module(pricing_engine_py service_layer.cpp)
+pybind11_add_module(pricing_engine_py server/service_layer.cpp)
 target_link_libraries(pricing_engine_py
     PRIVATE
         pricing_engine
@@ -30,12 +29,21 @@ target_link_libraries(pricing_engine_py
         Python3::Module
 )
 
-add_executable(black-scholes main.cpp)
-target_link_libraries(black-scholes PRIVATE pricing_engine)
-target_sources(black-scholes PRIVATE black-scholes.h option-method.h payoff.h)
+target_sources(pricing_engine PRIVATE include/black-scholes.h include/option-method.h include/payoff.h)
 
 include(CTest)
 enable_testing()
+
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
+)
+FetchContent_MakeAvailable(googletest)
+
+add_executable(run_tests tests/test_pricing.cpp)
+target_link_libraries(run_tests PRIVATE pricing_engine gtest_main)
+add_test(NAME PricingTests COMMAND run_tests)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
