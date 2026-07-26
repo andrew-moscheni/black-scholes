@@ -22,3 +22,17 @@ A high-performance options pricing system implementing both Black-Scholes and Bi
    ```cmd
    git clone [https://github.com/andrew-moscheni/options-pricing-engine.git](https://github.com/andrew-moscheni/options-pricing-engine.git)
    cd options-pricing-engine
+   ```
+
+## Running the Application
+
+1. **Installing Dependencies**
+   ```make all```
+   * If you want to make each set of files separately:
+   ```make setup
+      make build-cpp
+      make build-front```
+2. **Running the backend and frontend**
+   ```make run```
+3. **Running tests**
+   ```make test```

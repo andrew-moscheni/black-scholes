@@ -6,13 +6,18 @@ client = TestClient(app)
 
 def test_calculate_price_endpoint():
     payload = {
-        "spot": 100, "strike": 100, "vol": 0.2, 
-        "rate": 0.05, "expiry": 1.0, "is_call": True, "model": "black_scholes"
+        "spotPrice": 100.0,
+        "strikePrice": 100.0,
+        "volatility": 0.2,
+        "riskFreeRate": 0.05,
+        "timeToExpiry": 1.0
     }
-    response = client.post("/api/v1/price", json=payload)
+    response = client.post("/api/pricing", json=payload)
     assert response.status_code == 200
+
     data = response.json()
+    assert "blackScholes" in data
+    assert "binomial" in data
+    assert "callPrice" in data["blackScholes"]
     
-    assert "price" in data
-    assert "greeks" in data
-    assert round(data["price"], 2) == 10.45
+    assert round(data["blackScholes"]["callPrice"], 2) == 10.45

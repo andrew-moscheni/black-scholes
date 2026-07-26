@@ -1,10 +1,10 @@
-Start testing: Jul 26 15:00 EDT
+Start testing: Jul 26 17:32 EDT
 ----------------------------------------------------------
 1/1 Testing: PricingTests
 1/1 Test: PricingTests
 Command: "/home/agmoscheni/black-scholes/build/run_tests"
 Directory: /home/agmoscheni/black-scholes/build
-"PricingTests" start time: Jul 26 15:00 EDT
+"PricingTests" start time: Jul 26 17:32 EDT
 Output:
 ----------------------------------------------------------
 [==========] Running 3 tests from 2 test suites.
@@ -25,11 +25,11 @@ Output:
 [==========] 3 tests from 2 test suites ran. (0 ms total)
 [  PASSED  ] 3 tests.
 <end of output>
-Test time =   0.03 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"PricingTests" end time: Jul 26 15:00 EDT
+"PricingTests" end time: Jul 26 17:32 EDT
 "PricingTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jul 26 15:00 EDT
+End testing: Jul 26 17:32 EDT

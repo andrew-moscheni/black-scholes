@@ -1,2 +1,2 @@
-PricingTests 1 0.0257406
+PricingTests 24 0.000331525
 ---
